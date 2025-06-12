@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom scrollbar for webkit browsers */
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* make scrollbar transparent */
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #121212;
+        color: #b3b3b3;
+        overscroll-behavior: none;
+      }
+
+      /* Gradient overlay for a cinematic feel */
+      .gradient-overlay-top {
+        background: linear-gradient(to bottom, #121212 20%, transparent);
+      }
+
+      .gradient-overlay-bottom {
+        background: linear-gradient(to top, #121212 20%, transparent);
+      }
+
+      /* Styling for the lyrics */
+      #lyrics-container p {
+        transition: color 0.5s ease, transform 0.5s ease;
+        transform: scale(0.95);
+        opacity: 0.5;
+      }
+
+      /* Styling for the currently active lyric line */
+      #lyrics-container p.active {
+        color: #ffffff;
+        transform: scale(1);
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+
+      /* Add padding to the top and bottom of the lyrics container to center the first and last lines */
+      #lyrics-container {
+        padding-top: 50vh;
+        padding-bottom: 50vh;
+        /* background-color: #87ceeb; */
+      }
+    </style>
+  </head>
+  <body class="overflow-hidden">
+    <main
+      class="relative h-screen w-screen flex flex-col items-center justify-center bg-[#121212]"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?q=80&w=2070&auto=format&fit=crop"
+          alt="Gambar latar belakang abstrak"
+          class="w-full h-full object-cover opacity-20"
+        />
+      </div>
+
+      <!-- Header with Title and Artist -->
+      <header
+        id="song-info"
+        class="fixed top-0 left-0 w-full p-8 z-20 text-center transition-transform duration-300 ease-out"
+      >
+        <h1 class="text-2xl md:text-3xl font-bold text-white">song aboutt u</h1>
+        <p class="text-lg md:text-xl text-gray-400">from yayan</p>
+      </header>
+
+      <!-- Gradient overlays -->
+      <div
+        class="gradient-overlay-top fixed top-0 left-0 w-full h-1/4 z-10 pointer-events-none"
+      ></div>
+      <div
+        class="gradient-overlay-bottom fixed bottom-0 left-0 w-full h-1/4 z-10 pointer-events-none"
+      ></div>
+
+      <!-- Lyrics Container -->
+      <div
+        id="lyrics-container"
+        class="w-full h-full overflow-y-scroll text-center text-2xl md:text-4xl font-bold leading-relaxed md:leading-loose"
+      >
+        <!-- Lyrics will be inserted here by JavaScript -->
+      </div>
+
+      <!-- Progress Bar -->
+      <footer class="fixed bottom-0 left-0 w-full p-8 z-20">
+        <div
+          id="progress-bar-container"
+          class="w-full bg-gray-600 rounded-full h-1.5 cursor-pointer"
+        >
+          <div id="progress-bar" class="bg-white h-1.5 rounded-full"></div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const lyricsContainer = document.getElementById("lyrics-container");
+        const songInfo = document.getElementById("song-info");
+        const progressBar = document.getElementById("progress-bar");
+        const progressBarContainer = document.getElementById(
+          "progress-bar-container"
+        );
+
+        const lyricsText = `
+                Hai Ta, mungkin ini agak aneh atau gimana gitu.
+                Di saat-saat akhir ini, aku 'kan bilang sesuatu aja sama kamu, Ta.
+                Aku rasa aku perlu ngomong gini,
+                biar entar kalo pas pada ngilang ga ada rasa penasaran yang ku pendam.
+                Jujur aja, ketika aku memiliki perasaan itu, aku ngerasa bingung ta.
+                Aku itu yang notabenenya belum pernah menjalin sampai pacaran sama sekali,
+                itu ngerasa bingung dengan perilaku kamu ta.
+                Di awal, aku memang nggak pernah kepikiran kalo aku deket sama kamu ta.
+                Cuma suatu saat ini,
+                malam itu, ketika aku sama Agas lagi bikin tugas bareng,
+                sebuah tugas yang lumayan repot bikin proposal, poster, dan lain-lainnya.
+                Aku teringat waktu itu kamu itu ngirim sebuah foto kacamatamu,
+                yang berisi tetes air matamu.
+                Ketika itu pun, aku ngerasa ada sesuatu yang terjadi sama dirimu, Ta.
+                Semenjak saat itu, aku berpikir,
+                apa sebenarnya yang terjadi sama kamu?
+                Aku merasa bahwa kamu itu memerlukan,
+                dalam tanda kutip "perhatian/kasih sayang".
+                Nah, dari sana itu sebenarnya aku enggak langsung kalo aku tertarik sama kamu.
+                Tetapi seiring berjalannya waktu,
+                aku ngerasa pemikiran ku itu ada benarnya.
+                Dan dari sanalah aku berangkat untuk memberikan perhatian lebih,
+                dan mungkin aku lebih sering hadir dalam hidupmu.
+                Jujur aja, aku ngerasa kamu lama kelamaan,
+                aku itu ngerasa kalo kamu memiliki trauma di SMP,
+                dan dari keluarga yang membuat seolah-olah cowok itu cuma memandang cewek itu sebagai objek.
+                Dan semenjak aku tahu kalo kamu gitu,
+                aku merasa kamu itu nggak hanya perlu support,
+                kamu juga butuh kasih sayang.
+                Nah, dari sana juga aku mulai membiasakan diriku,
+                buat jadi cowok yang bisa provide buat kamu,
+                gentle gitu lah,
+                dan enggak yang main-main gitu.
+                Aku juga ikut study tour untuk menjaga dirimu,
+                khawatir entar kalo kamu kenapa-kenapa.
+                Jujur, aku melihat dan tahu bahwa,
+                mungkin pengalamanmu di masa lalu telah mengajarkan dirimu untuk bersembunyi.
+                Aku juga berpikir demikian.
+                Dan aku juga minta maaf,
+                kalo aku belum bisa menjadi seseorang yang sepenuhnya kamu inginkan.
+                Tbh, aku merasa kamu tidak deserve untuk merasakan penderitaan yang kamu miliki saat itu.
+                <i>'Cuz you're amazing, sincere, beautiful, brilliant, shining, rare.</i>
+                <i>Like a diamond, you have depth and you're real in such a fake world,</i>
+                <i>it's hard to ignore.</i>
+                <i>I love how much you care, like holy shit, you care so much.</i>
+                <i>It's fucking adorable.</i>
+                <i>And you're weird as hell,</i>
+                <i>just like me.</i>
+                <i>You really teach a lot of things to me,</i>
+                <i>while in my hopeless era.</i>
+                <i>Meanwhile, I learned something that "you can love but you can't be attached to".</i>
+                Aku pikir kehadiranmu sangat berharga bagiku.
+                Meskipun begitu, aku sangat menyayangkan sekali kalo kita akan dipisahkan.
+                Aku berharap Tuhan memang sudah menyiapkan rencana yang terbaik untuk kita.
+                Dan aku selalu menantikan waktu dan kesempatan,
+                untuk kita masih bisa bertemu lagi.
+                Sebelum waktunya, aku ingin meminta satu hal dari kamu ta.
+                Bolehkah aku meminta saran/wejangan/kritik dan hal lainnya?
+                Aku benar-benar ingin mendapatkan insight diriku darimu ta.
+                Bisa saja aku melewati blind spot yang sebenarnya penting,tapi aku belum menyadarinya.
+                Sekian itu saja yang ingin aku ungkapkan.
+                Aku berharap kedepannya semoga apa yang kita impikan akan tercapai, dan tetap menjadi pribadi yang baik.
+                Meskipun nanti kita berpisah,
+                but I am always on your side taa    ♡
+            `;
+
+        // Split the text into lines and create <p> elements
+        const lines = lyricsText
+          .trim()
+          .split("\n")
+          .map((line) => line.trim());
+        lyricsContainer.innerHTML = lines
+          .map((line) => `<p class="px-8">${line || "&nbsp;"}</p>`)
+          .join("");
+
+        const lyricElements = Array.from(lyricsContainer.children);
+
+        function updateActiveLyric() {
+          const containerHeight = lyricsContainer.clientHeight;
+          const scrollCenter = lyricsContainer.scrollTop + containerHeight / 2;
+
+          let closestLine = null;
+          let minDistance = Infinity;
+
+          lyricElements.forEach((line) => {
+            const lineTop = line.offsetTop - lyricsContainer.offsetTop;
+            const lineCenter = lineTop + line.clientHeight / 2;
+            const distance = Math.abs(scrollCenter - lineCenter);
+
+            if (distance < minDistance) {
+              minDistance = distance;
+              closestLine = line;
+            }
+          });
+
+          lyricElements.forEach((line) => {
+            line.classList.remove("active");
+          });
+
+          if (closestLine) {
+            closestLine.classList.add("active");
+          }
+        }
+
+        function updateProgressBar() {
+          const scrollableHeight =
+            lyricsContainer.scrollHeight - lyricsContainer.clientHeight;
+          const scrollPercentage =
+            (lyricsContainer.scrollTop / scrollableHeight) * 100;
+          progressBar.style.width = `${scrollPercentage}%`;
+        }
+
+        function updateHeaderPosition() {
+          // This creates a subtle parallax effect on the header
+          const scrollAmount = lyricsContainer.scrollTop;
+          songInfo.style.transform = `translateY(-${scrollAmount * 0.2}px)`;
+        }
+
+        // Event listener for scrolling the lyrics
+        lyricsContainer.addEventListener("scroll", () => {
+          updateActiveLyric();
+          updateProgressBar();
+          updateHeaderPosition();
+        });
+
+        // Event listener for clicking on the progress bar to seek
+        progressBarContainer.addEventListener("click", (e) => {
+          const rect = progressBarContainer.getBoundingClientRect();
+          const clickX = e.clientX - rect.left;
+          const percentage = clickX / rect.width;
+          const scrollableHeight =
+            lyricsContainer.scrollHeight - lyricsContainer.clientHeight;
+          lyricsContainer.scrollTop = percentage * scrollableHeight;
+        });
+
+        // Initial setup
+        updateActiveLyric();
+        updateProgressBar();
+        updateHeaderPosition();
+      });
+    </script>
+  </body>
+</html>
